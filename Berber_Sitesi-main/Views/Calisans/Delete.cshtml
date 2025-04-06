@@ -1,0 +1,49 @@
+﻿@model Web_Odev.Models.Calisan
+
+@{
+    ViewData["Title"] = "Çalışanı Sil";
+}
+
+<style>
+    body {
+        background-image: url('/images/logo.jpg'); /* Kurumsal ve ciddi bir arkaplan */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+    }
+
+    .delete-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        max-width: 500px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+        .delete-card h1 {
+            color: #d9534f; /* Kırmızı uyarı rengi */
+        }
+
+    .btn-danger, .btn-secondary {
+        margin: 5px;
+        padding: 10px 20px;
+    }
+</style>
+
+<div class="delete-card">
+    <h1>Çalışanı Sil</h1>
+    <h3>Bu çalışanı silmek istediğinizden emin misiniz?</h3>
+
+    <div>
+        <h4>@Model.Isim</h4>
+    </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <button type="submit" class="btn btn-danger">Sil</button>
+        <a asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+    </form>
+</div>
